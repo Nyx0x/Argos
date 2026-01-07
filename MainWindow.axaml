@@ -11,6 +11,7 @@
 
     <TextBox x:Name="CaixaDeTexto"
                Watermark="O que precisa ser feito?"
+               KeyDown="AoApertarTeclaNaCaixa"
                Width="600"/>           
 
     <Button Content="Adicionar"

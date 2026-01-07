@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity; 
+using Avalonia.Input;
 using System.Collections.Generic;
 using Argos.Models;
 
@@ -16,7 +17,8 @@ public partial class MainWindow : Window
         InitializeComponent();
     }
 
-    public void AoClicarNoBotao(object sender, RoutedEventArgs args)
+    // Função central 
+    private void AdicionarNovaTarefa()
     {
         // Validar entrada
         string textoDigitado = CaixaDeTexto.Text ?? "";
@@ -43,5 +45,20 @@ public partial class MainWindow : Window
 
         //4. Limpar a caixa para a próxima
         CaixaDeTexto.Text = "";
+    }
+
+    // Mouse/Clique
+    public void AoClicarNoBotao(object sender, RoutedEventArgs args)
+    {
+        AdicionarNovaTarefa();
+    }
+    // Teclado
+    public void AoApertarTeclaNaCaixa(object sender, KeyEventArgs args)
+    {
+        // verifcar se a tecla é Enter
+        if (args.Key == Key.Enter)
+        {
+            AdicionarNovaTarefa();
+        }
     }
 }
