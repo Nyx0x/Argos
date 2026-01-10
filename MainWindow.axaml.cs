@@ -15,6 +15,19 @@ public partial class MainWindow : Window
     private List<Tarefa> _minhasTarefas = new List<Tarefa>();
     private const string ArquivoJson = "tarefas.json";
 
+    private CheckBox CriarCheckboxVisual(Tarefa tarefa)
+    {
+        CheckBox checkboxVisual = new CheckBox();
+        checkboxVisual.Content = tarefa.Descricao;
+        checkboxVisual.IsChecked = tarefa.Concluida;
+        // Evento mudança
+        checkboxVisual.IsCheckedChanged += (sender, args) =>
+        {
+            tarefa.Concluida = checkboxVisual.IsChecked ?? false;
+            SalvarNoArquivo();
+        };
+        return checkboxVisual;
+    }
     public MainWindow()
     {
         InitializeComponent();
@@ -38,11 +51,7 @@ public partial class MainWindow : Window
         // Adcionando a lista "secreta" _minhasTarefas
         _minhasTarefas.Add(novaTarefa);
         
-        // Atualizar a interface (UI)
-        // Criando checkbox visual para o usuário
-        CheckBox checkboxVisual = new CheckBox();
-        checkboxVisual.Content = novaTarefa.Descricao;
-        checkboxVisual.IsChecked = novaTarefa.Concluida;
+        CheckBox checkboxVisual = CriarCheckboxVisual(novaTarefa);
 
         // Adiciona na pilha visual (StackPanel)
         ListaDeTarefas.Children.Add(checkboxVisual);
@@ -93,11 +102,25 @@ public partial class MainWindow : Window
             // Atualiza a interface com as tarefas carregadas
             foreach (var tarefa in _minhasTarefas)
             {
-                CheckBox checkboxVisual = new CheckBox();
-                checkboxVisual.Content = tarefa.Descricao;
-                checkboxVisual.IsChecked = tarefa.Concluida;
+                CheckBox checkboxVisual = CriarCheckboxVisual(tarefa);
                 ListaDeTarefas.Children.Add(checkboxVisual);
             }
+        }
+    }
+
+    public void AoClicarEmLimpar(object sender, RoutedEventArgs args)
+    {
+        // Remove da memória o que for concluido == true
+        _minhasTarefas.RemoveAll(t => t.Concluida);
+
+        // Atualiza o arquivo
+        SalvarNoArquivo();
+
+        // Atualiza a interface
+        ListaDeTarefas.Children.Clear();
+        foreach (var tarefa in _minhasTarefas)
+        {
+            ListaDeTarefas.Children.Add(CriarCheckboxVisual(tarefa));
         }
     }
 }
