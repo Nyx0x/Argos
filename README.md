@@ -16,13 +16,27 @@
 
 ## 🦅 Sobre o Projeto
 
-O **Argos** não é apenas mais uma lista de tarefas. É um assistente de produtividade desktop nativo, construído para ser rápido, estético e funcional. Desenvolvido com foco em **Linux (Pop!_OS)**, mas compatível com múltiplas plataformas.
+O **Argos** não é apenas mais uma lista de tarefas. É um centro de comando pessoal. Desenvolvido com foco em **Linux (Pop!_OS)**, mas compatível com múltiplas plataformas.
+
+  O Argos é um projeto de arquitetura modular em desenvolvimento, desenhado para unificar produtividade diária e ferramentas de inteligência (OSINT). Construído com uma base sólida em C# e Avalonia UI, ele foi projetado para operar como um "sistema operacional" pessoal que carrega diferentes módulos conforme a necessidade.
+
+  🧩 Arquitetura Modular Planejada:
+
+        Módulo 1: Core & Produtividade (Em Desenvolvimento)
+        O núcleo do sistema. Gerenciamento de tarefas em memória, persistência de dados em JSON, interface gráfica cross-platform (Dark Mode por padrão) e rotinas de organização pessoal.
+
+        Módulo 2: OSINT & Reconhecimento (Roadmap)
+        Integração futura com scripts em Python para coleta passiva de dados, web scraping e consultas automatizadas em APIs públicas (investigação de usernames, e-mails e metadados).
+
+        Módulo 3: Inteligência Adaptativa (Roadmap)
+        Agente inteligente para realocação dinâmica de tempo e análise de cruzamento de dados.
+        
 
 > *"Planejamento para mentes aceleradas."*
 
 ## 🛠️ Tech Stack
 
-* **Core:** C# / .NET 8.0
+* **Core:** C# / .NET 8.0 (Lógica robusta e Orientação a Objetos)
 * **UI Framework:** Avalonia UI (XAML)
 * **Database:** MongoDB (Planejado)
 * **Future Integrations:** Python Scripts
@@ -33,6 +47,7 @@ O **Argos** não é apenas mais uma lista de tarefas. É um assistente de produt
 - [ ] **Gerenciamento de Tarefas** (Adicionar/Remover dinamicamente)
 - [ ] **Integração com Python** (Para automações futuras)
 - [ ] **Dashboard Personalizável**
+
 
 ---
 
