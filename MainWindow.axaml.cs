@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using Argos.Models;
 using System.IO;
 using System.Text.Json;
+using System;
+using Avalonia.Threading;
 
 
 namespace Argos;
@@ -32,6 +34,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         CarregarDoArquivo();
+        IniciarRelogio();
     }
 
     // Função central 
@@ -122,5 +125,15 @@ public partial class MainWindow : Window
         {
             ListaDeTarefas.Children.Add(CriarCheckboxVisual(tarefa));
         }
+    }
+    private void IniciarRelogio()
+    {
+        DispatcherTimer timer = new DispatcherTimer();
+        timer.Interval = TimeSpan.FromSeconds(1);
+        timer.Tick += (sender, args) =>
+        {
+            RelogioTexto.Text = DateTime.Now.ToString("HH:mm:ss   |  dd/MM/yyyy");
+        };
+        timer.Start();
     }
 }
