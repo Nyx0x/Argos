@@ -4,7 +4,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Argos.MainWindow"
-        Title="Argos v0.1">
+        Title="Argos v0.1"
+        Background="#0D1117"
+        Foreground="#C9D1D9">
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="20" Margin="20">
 
     <TextBlock Text="Minhas Tarefas" FontSize="20" HorizontalAlignment="Center"/>
