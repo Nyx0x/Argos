@@ -43,10 +43,16 @@ O **Argos** não é apenas mais uma lista de tarefas. É um centro de comando pe
 
 ## 🚀 Funcionalidades (Roadmap)
 
-- [ ] **Interface Dark Mode** (Foco visual e conforto ocular)
-- [ ] **Gerenciamento de Tarefas** (Adicionar/Remover dinamicamente)
-- [ ] **Integração com Python** (Para automações futuras)
-- [ ] **Dashboard Personalizável**
+**Módulo 1: Produtividade (Core)**
+- [x] **Interface Dark Mode** (Foco visual e conforto ocular)
+- [x] **Gerenciamento de Tarefas** (Adicionar, remover dinamicamente e persistência em JSON)
+- [ ] **Categorização de Tarefas** (Tags para separar estudos, projetos e pessoal)
+- [ ] **Dashboard Personalizável** (Métricas de desempenho e histórico)
+
+**Módulos Futuros (OSINT & IA)**
+- [ ] **Integração C# + Python** (Ponte de comunicação entre a interface e os scripts)
+- [ ] **Motor de Automação** (Execução de scripts de raspagem em background)
+- [ ] **Módulo Investigativo** (Busca automatizada de alvos e cruzamento de dados)
 
 
 ---
