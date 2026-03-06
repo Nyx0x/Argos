@@ -20,7 +20,7 @@ public partial class MainWindow : Window
     private CheckBox CriarCheckboxVisual(Tarefa tarefa)
     {
         CheckBox checkboxVisual = new CheckBox();
-        checkboxVisual.Content = tarefa.Descricao;
+        checkboxVisual.Content = $"[{tarefa.Categoria}] {tarefa.Descricao}";
         checkboxVisual.IsChecked = tarefa.Concluida;
         // Evento mudança
         checkboxVisual.IsCheckedChanged += (sender, args) =>
@@ -44,10 +44,20 @@ public partial class MainWindow : Window
         string textoDigitado = CaixaDeTexto.Text ?? "";
         if (string.IsNullOrWhiteSpace(textoDigitado)) return;
 
+        string descricaoLimpa = textoDigitado;
+        string categoriaEncontrada = "Geral";
+        int posicaoDaHashtag = textoDigitado.IndexOf('#');
+        if (posicaoDaHashtag != -1)
+        {
+            descricaoLimpa = textoDigitado.Substring(0, posicaoDaHashtag).Trim();
+            categoriaEncontrada = textoDigitado.Substring(posicaoDaHashtag + 1).Trim();
+        }
+
         // Criar dado (Usando Model)
         //Em termos técnicos: "Instanciando um objeto/nova Tarefa"
         Tarefa novaTarefa = new Tarefa();
-        novaTarefa.Descricao = textoDigitado;
+        novaTarefa.Descricao = descricaoLimpa;
+        novaTarefa.Categoria = categoriaEncontrada;
         novaTarefa.Concluida = false;
         
         // Guardar na memória 

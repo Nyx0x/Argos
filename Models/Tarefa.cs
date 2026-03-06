@@ -7,4 +7,6 @@ public class Tarefa
 
     // Se já foi feito ou não
     public bool Concluida { get; set; } = false;
+
+    public string Categoria { get; set; } = "Geral"; 
 }
