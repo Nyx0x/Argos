@@ -6,15 +6,29 @@
         x:Class="Argos.MainWindow"
         Title="Argos v0.1"
         Background="#0D1117"
-        Foreground="#C9D1D9">
+        Foreground="#C9D1D9"
+        SystemDecorations="None">
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="20" Margin="20">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" Height="35" Background="#161B22" PointerPressed="ArrastarJanela">
+            <TextBlock Text="🦅 ARGOS_OS // TERMINAL" Foreground="#33FF00" VerticalAlignment="Center" Margin="15,0,0,0" FontWeight="Bold"/>
+            <Button Content="X" Click="FecharSistema" HorizontalAlignment="Right" Background="Transparent" Foreground="Red" FontWeight="Bold"/>
+        </Grid>
+
+    <StackPanel HorizontalAlignment="Center" Spacing="20" Margin="20">
 
     <TextBlock x:Name="RelogioTexto"
                 Text="00:00:00"
                 FontSize="32"
                 FontWeight="Bold"
                 Foreground="#33FF00"
+                HorizontalAlignment="Center"
+                Margin="0,0,0,5"/>
+
+     <TextBlock x:Name="TextoEstatisticas"
+                Text="Pendentes: 0 | Concluídas: 0"
+                FontSize="14"
+                Foreground="#8B949E"
                 HorizontalAlignment="Center"
                 Margin="0,0,0,10"/>
 
@@ -46,5 +60,6 @@
                 Background="#FFdddd"
                 Foreground="Red"/>
             </StackPanel>
+            </DockPanel>
 
 </Window>
