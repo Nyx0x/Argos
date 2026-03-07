@@ -28,6 +28,7 @@ public partial class MainWindow : Window
         {
             tarefa.Concluida = checkboxVisual.IsChecked ?? false;
             SalvarNoArquivo();
+            AtualizarEstatisticas();
         };
         return checkboxVisual;
     }
@@ -74,6 +75,7 @@ public partial class MainWindow : Window
         CaixaDeTexto.Text = "";
 
         SalvarNoArquivo();
+        AtualizarEstatisticas();
     }
 
     // Mouse/Clique
@@ -120,6 +122,7 @@ public partial class MainWindow : Window
                 ListaDeTarefas.Children.Add(checkboxVisual);
             }
         }
+        AtualizarEstatisticas();
     }
 
     public void AoClicarEmLimpar(object sender, RoutedEventArgs args)
@@ -136,6 +139,7 @@ public partial class MainWindow : Window
         {
             ListaDeTarefas.Children.Add(CriarCheckboxVisual(tarefa));
         }
+        AtualizarEstatisticas();
     }
     private void IniciarRelogio()
     {
@@ -159,5 +163,20 @@ public partial class MainWindow : Window
         {
             ListaDeTarefas.Children.Add(CriarCheckboxVisual(tarefa));
         }
+    }
+    public void FecharSistema(object sender, RoutedEventArgs args)
+    {
+        this.Close();
+    }
+    public void ArrastarJanela(object sender, PointerPressedEventArgs args)
+    {
+        this.BeginMoveDrag(args);
+    }
+    private void AtualizarEstatisticas()
+    {
+        int total = _minhasTarefas.Count;
+        int concluídas = _minhasTarefas.Count(t => t.Concluida);
+        int Pendentes = total - concluídas;
+        TextoEstatisticas.Text = $"Pendentes: {Pendentes} | Concluídas: {concluídas}";
     }
 }
