@@ -7,6 +7,7 @@ using System.IO;
 using System.Text.Json;
 using System;
 using Avalonia.Threading;
+using System.Linq;
 
 
 namespace Argos;
@@ -145,5 +146,18 @@ public partial class MainWindow : Window
             RelogioTexto.Text = DateTime.Now.ToString("HH:mm:ss   |  dd/MM/yyyy");
         };
         timer.Start();
+    }
+
+    private void AoDigitarNoFiltro(object sender, TextChangedEventArgs args)
+    {
+        string textoFiltro = CaixaFiltro.Text?.Trim().ToLower() ?? "";
+        ListaDeTarefas.Children.Clear();
+        var tarefasFiltradas = string.IsNullOrEmpty(textoFiltro)
+        ? _minhasTarefas
+        : _minhasTarefas.Where(t => t.Categoria.ToLower().Contains(textoFiltro)).ToList();
+        foreach (var tarefa in tarefasFiltradas)
+        {
+            ListaDeTarefas.Children.Add(CriarCheckboxVisual(tarefa));
+        }
     }
 }

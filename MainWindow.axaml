@@ -17,6 +17,11 @@
                 Foreground="#33FF00"
                 HorizontalAlignment="Center"
                 Margin="0,0,0,10"/>
+
+     <TextBox x:Name="CaixaFiltro"
+               Watermark="🔍 Filtrar por categoria (ex: osint)..."
+               TextChanged="AoDigitarNoFiltro"
+               Width="600"/>
                 
     <TextBlock Text="Minhas Tarefas" FontSize="20" HorizontalAlignment="Center"/>
 
