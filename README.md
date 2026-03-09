@@ -14,49 +14,50 @@
 
 ---
 
-## 🦅 Sobre o Projeto
+## 🦅 About the Project
 
-O **Argos** não é apenas mais uma lista de tarefas. É um centro de comando pessoal. Desenvolvido com foco em **Linux (Pop!_OS)**, mas compatível com múltiplas plataformas.
+Argos is not just another to-do list. It is a modular, cross-platform command center designed to unify daily productivity and OSINT (Open Source Intelligence) tools. Built with a solid foundation in **.NET 8** and **Avalonia UI**, it operates as a personal dashboard that scales through specialized modules.
 
-  O Argos é um projeto de arquitetura modular em desenvolvimento, desenhado para unificar produtividade diária e ferramentas de inteligência (OSINT). Construído com uma base sólida em C# e Avalonia UI, ele foi projetado para operar como um "sistema operacional" pessoal que carrega diferentes módulos conforme a necessidade.
+  
+> *"Planning for accelerated minds."*
 
-  🧩 Arquitetura Modular Planejada:
+### 🏛️ Technical Vision
+The goal of Argos is to bridge the gap between high-level management and low-level data collection. By combining the stability and type-safety of C# with the agility of Python's security libraries, Argos provides a unified environment for developers and security enthusiasts who need to stay organized while performing technical reconnaissance.
 
-        Módulo 1: Core & Produtividade (Em Desenvolvimento)
-        O núcleo do sistema. Gerenciamento de tarefas em memória, persistência de dados em JSON, interface gráfica cross-platform (Dark Mode por padrão) e rotinas de organização pessoal.
-
-        Módulo 2: OSINT & Reconhecimento (Roadmap)
-        Integração futura com scripts em Python para coleta passiva de dados, web scraping e consultas automatizadas em APIs públicas (investigação de usernames, e-mails e metadados).
-
-        Módulo 3: Inteligência Adaptativa (Roadmap)
-        Agente inteligente para realocação dinâmica de tempo e análise de cruzamento de dados.
-        
-
-> *"Planejamento para mentes aceleradas."*
-
-## 🛠️ Tech Stack
-
-* **Core:** C# / .NET 8.0 (Lógica robusta e Orientação a Objetos)
-* **UI Framework:** Avalonia UI (XAML)
-* **Database:** MongoDB (Planejado)
-* **Future Integrations:** Python Scripts
-
-## 🚀 Funcionalidades (Roadmap)
-
-**Módulo 1: Produtividade (Core)**
-- [x] **Interface Dark Mode** (Foco visual e conforto ocular)
-- [x] **Gerenciamento de Tarefas** (Adicionar, remover dinamicamente e persistência em JSON)
-- [ ] **Categorização de Tarefas** (Tags para separar estudos, projetos e pessoal)
-- [ ] **Dashboard Personalizável** (Métricas de desempenho e histórico)
-
-**Módulos Futuros (OSINT & IA)**
-- [ ] **Integração C# + Python** (Ponte de comunicação entre a interface e os scripts)
-- [ ] **Motor de Automação** (Execução de scripts de raspagem em background)
-- [ ] **Módulo Investigativo** (Busca automatizada de alvos e cruzamento de dados)
-
+**Key Principles:**
+* **Privacy First:** All data remains local (JSON/MongoDB) until the user decides otherwise.
+* **Modularity:** Features are decoupled to ensure the core remains lightweight.
+* **Cross-Platform Performance:** Optimized for Linux (Pop!_OS focus) but fully functional on Windows and macOS.
 
 ---
 
+## 🧩 Modular Architecture & Roadmap
+
+* **Module 1: Core & Productivity (In Development)**
+  The core of the system. In-memory task management, JSON data persistence, a high-performance cross-platform UI (Dark Mode by default), and real-time dashboard metrics.
+
+* **Module 2: Recon & OSINT (The Python Bridge) - *Roadmap***
+  Moving beyond conventional task management, this module transforms Argos into a passive footprinting tool. By bridging the robust C# core with Python's scraping capabilities, Argos will execute automated intelligence gathering in the background. Features include username enumeration, metadata extraction, and automated cross-referencing against public APIs.
+
+* **Module 3: Adaptive Intelligence - *Roadmap***
+  AI agent for dynamic time reallocation and data cross-referencing.
+
+---
+
+## 🛠️ Tech Stack
+* **Core:** C# / .NET 8.0
+* **UI Framework:** Avalonia UI (XAML)
+* **Future Persistence:** MongoDB / SQLite
+* **Future Integrations:** Python Bridge (for OSINT scripts)
+
+---
+
+## 🤝 How to Contribute
+Welcome to the Argos project! As an evolving command center, contributions are what make this tool better for the community.
+* **Bug Reporting:** Open an issue if you find a glitch in the UI or a logic error.
+* **Module Development:** Interested in OSINT? Help us build the Python bridge or suggest new scraping targets.
+* **UI/UX:** We are committed to a "Dark Mode" aesthetic. XAML wizards are welcome.
+
 <div align="center">
-  <sub>Desenvolvido com muito café por Nyx.</sub>
+  <sub>Developed with too much coffee by Nyx.</sub>
 </div>
