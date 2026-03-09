@@ -14,7 +14,7 @@
 
 ---
 
-## 🦅 About the Project
+## 🦉 About the Project
 
 Argos is not just another to-do list. It is a modular, cross-platform command center designed to unify daily productivity and OSINT (Open Source Intelligence) tools. Built with a solid foundation in **.NET 8** and **Avalonia UI**, it operates as a personal dashboard that scales through specialized modules.
 
