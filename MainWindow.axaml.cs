@@ -8,6 +8,8 @@ using System.Text.Json;
 using System;
 using Avalonia.Threading;
 using System.Linq;
+using Avalonia.Media;
+using Avalonia.Layout;
 
 
 namespace Argos;
@@ -21,8 +23,38 @@ public partial class MainWindow : Window
     private CheckBox CriarCheckboxVisual(Tarefa tarefa)
     {
         CheckBox checkboxVisual = new CheckBox();
-        checkboxVisual.Content = $"[{tarefa.Categoria}] {tarefa.Descricao}";
         checkboxVisual.IsChecked = tarefa.Concluida;
+
+        // 1. Mini-painel horizontal 
+        StackPanel painelTexto = new StackPanel
+        {
+            Orientation = Orientation.Horizontal,
+            Spacing = 8
+        };
+
+       // 2. Texto da tag
+        TextBlock textoTag= new TextBlock
+        {
+            Text = $"[{tarefa.Categoria}]",
+            Foreground = ObterCorDaCategoria(tarefa.Categoria),
+            FontWeight = FontWeight.Bold
+        };
+
+        // 3. Texto da descrição
+        TextBlock textoDescricao = new TextBlock
+        {
+            Text = tarefa.Descricao,
+            Foreground = Brushes.LightGray
+        };
+
+        // 4. Adicionar os textos no painel
+        painelTexto.Children.Add(textoTag);
+        painelTexto.Children.Add(textoDescricao);
+
+        // 5. Adicionar o painel dentro do checkbox
+        checkboxVisual.Content = painelTexto;
+
+
         // Evento mudança
         checkboxVisual.IsCheckedChanged += (sender, args) =>
         {
@@ -30,6 +62,7 @@ public partial class MainWindow : Window
             SalvarNoArquivo();
             AtualizarEstatisticas();
         };
+        
         return checkboxVisual;
     }
     public MainWindow()
@@ -150,6 +183,20 @@ public partial class MainWindow : Window
             RelogioTexto.Text = DateTime.Now.ToString("HH:mm:ss   |  dd/MM/yyyy");
         };
         timer.Start();
+    }
+    
+    private IBrush ObterCorDaCategoria(string categoria)
+    {
+        return categoria.ToLower() switch
+        {
+            "osint" => Brushes.Crimson,                // Vermelho para investigação
+            "estudo" => Brushes.DeepSkyBlue,          //Azul para foco 
+            "trabalho" => Brushes.MediumSeaGreen,    // Verde médio para trabalho
+            "casa" => Brushes.Orange,               // Laranja para Produtividade
+            "dev" => Brushes.LimeGreen,            // Verde Hacker para código
+            "Argos" => Brushes.Purple,            // Roxo para tarefas relacionadas ao próprio app
+            _ => Brushes.Gray                    // Cinza para categorias não especificadas
+        };
     }
 
     private void AoDigitarNoFiltro(object sender, TextChangedEventArgs args)
